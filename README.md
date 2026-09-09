@@ -1,4 +1,4 @@
-# 📊 Aurora Serviços Corporativos — Case de People Analytics
+# Aurora Serviços Corporativos — Case de People Analytics
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-T--SQL-1F4E5F?style=flat-square)
 ![Power BI](https://img.shields.io/badge/Power%20BI-em%20constru%C3%A7%C3%A3o-B45309?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Portfólio-2E7D4F?style=flat-square)
@@ -9,7 +9,7 @@ Este projeto simula o trabalho de uma Analista de Dados dentro de uma área de G
 
 ---
 
-## 🧭 O problema de negócio
+## O problema de negócio
 A **Aurora Serviços Corporativos** é uma empresa fictícia de porte médio (1.000 funcionários, 6 departamentos), representada pelo banco `sql/00_schema_banco_rh_dei_1000.sql`. A Diretoria trouxe 5 dores estratégicas — cada uma ancorada em dado de mercado real (com fonte) — para um diagnóstico baseado em dados:
 
 | # | Desafio | Pergunta de negócio |
@@ -22,7 +22,7 @@ A **Aurora Serviços Corporativos** é uma empresa fictícia de porte médio (1.
 
 ---
 
-## 🔍 Metodologia
+## Metodologia
 
 ```
 Panorama de mercado → Pergunta de negócio → Hipótese testável → SQL → Insight real → Recomendação
@@ -32,7 +32,7 @@ A hipótese é escrita **antes** de qualquer código. Todas as queries foram val
 
 ---
 
-## 📁 Estrutura do repositório
+## Estrutura do repositório
 
 | Arquivo | Conteúdo |
 |---|---|
@@ -47,7 +47,7 @@ A hipótese é escrita **antes** de qualquer código. Todas as queries foram val
 
 ---
 
-## 💡 Principais achados
+## Principais achados
 
 - **O turnover de 2025 está concentrado, não disseminado.** Varia de **0,99% (Financeiro) a 7,69% (Marketing)** — quase 8x de diferença. Marketing e Operações merecem atenção prioritária agora.
 - **O teto de vidro é mais forte que o gap salarial.** O gap salarial direto (M vs. F) existe mas é modesto e menor no topo (1,50% no Diretor). O achado que pesa mais é a representatividade: mulheres caem de **52,91% para 18,42%** da base ao Diretoria; pessoas brancas sobem de **37,38% para ~69%** no mesmo caminho.
@@ -57,7 +57,7 @@ A hipótese é escrita **antes** de qualquer código. Todas as queries foram val
 
 ---
 
-## ✅ Recomendações prioritárias
+## Recomendações prioritárias
 
 1. Investigação de clima e liderança em Marketing e Operações (turnover concentrado).
 2. Auditoria do pipeline de promoção com metas de representatividade por nível (gênero e raça).
@@ -67,13 +67,13 @@ A hipótese é escrita **antes** de qualquer código. Todas as queries foram val
 
 ---
 
-## 🛠️ Tecnologias
+## Tecnologias
 
 - **SQL Server (T-SQL)** — filtros, agregações, JOINs, subqueries correlacionadas, CTEs, window functions (`ROW_NUMBER() OVER PARTITION BY`)
 - **Metodologia** — análise orientada a hipótese (Pergunta → Hipótese → SQL → Insight → Recomendação)
 - **Em desenvolvimento:** Power BI/DAX, Python (pandas)
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [x] SQL: 5 desafios, 13 hipóteses testadas e validadas
 - [ ] Dashboard Power BI (modelo de dados e medidas já planejados)
@@ -82,9 +82,9 @@ A hipótese é escrita **antes** de qualquer código. Todas as queries foram val
 
 ---
 
-## 👩‍💼 Sobre mim
+## Sobre mim
 
-Administradora, com MBA em Gestão Estratégica de Compras e pós-graduação em Gerenciamento de Projetos. Mais de 6 anos como Compradora e experiência como Analista de Diversidade, Equidade e Inclusão — a bagagem de negócio que sustenta as recomendações deste case. Em transição para Análise de Dados com foco em People Analytics.
+Administradora, com MBA em Gestão Estratégica de Compras e pós-graduação em Gerenciamento de Projetos. Mais de 6 anos como Compradora e experiência como Analista de Diversidade, Equidade e Inclusão — a bagagem de negócio que sustenta as recomendações deste case. Em transição para Análise de Dados.
 
 📫 [https://www.linkedin.com/in/mariana-sil/] · [mariana.silvams13@gmail.com]
 
