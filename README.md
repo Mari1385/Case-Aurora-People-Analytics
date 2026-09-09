@@ -43,7 +43,7 @@ A hipótese é escrita **antes** de qualquer código. Todas as queries foram val
 | `sql/desafio4_sucessao_promocoes.sql` | Elegíveis não promovidos por departamento, gênero e raça (window functions + CTEs). |
 | `sql/desafio5_multigeracional.sql` | Concentração etária por nível hierárquico e comparação com benchmark nacional. |
 
-> 🚧 Dashboard Power BI e notebooks Python: em desenvolvimento — próxima etapa do roadmap abaixo.
+> Dashboard Power BI e notebooks Python: em desenvolvimento — próxima etapa do roadmap abaixo.
 
 ---
 
@@ -86,7 +86,7 @@ A hipótese é escrita **antes** de qualquer código. Todas as queries foram val
 
 Administradora, com MBA em Gestão Estratégica de Compras e pós-graduação em Gerenciamento de Projetos. Mais de 6 anos como Compradora e experiência como Analista de Diversidade, Equidade e Inclusão — a bagagem de negócio que sustenta as recomendações deste case. Em transição para Análise de Dados.
 
-📫 [https://www.linkedin.com/in/mariana-sil/] · [mariana.silvams13@gmail.com]
+[https://www.linkedin.com/in/mariana-sil/] · [mariana.silvams13@gmail.com]
 
 ---
 
