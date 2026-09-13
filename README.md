@@ -1,4 +1,5 @@
 # Aurora Serviços Corporativos — Case de People Analytics
+
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-T--SQL-1F4E5F?style=flat-square)
 ![Power BI](https://img.shields.io/badge/Power%20BI-em%20constru%C3%A7%C3%A3o-B45309?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Portfólio-2E7D4F?style=flat-square)
@@ -10,7 +11,8 @@ Este projeto simula o trabalho de uma Analista de Dados dentro de uma área de G
 ---
 
 ## O problema de negócio
-A **Aurora Serviços Corporativos** é uma empresa fictícia de porte médio (1.000 funcionários, 6 departamentos), representada pelo banco `sql/00_schema_banco_rh_dei_1000.sql`. A Diretoria trouxe 5 dores estratégicas — cada uma ancorada em dado de mercado real (com fonte) — para um diagnóstico baseado em dados:
+
+A **Aurora Serviços Corporativos** é uma empresa fictícia de porte médio (1.000 funcionários, 6 departamentos), representada pelo banco `00_schema_banco_rh_dei_1000.sql`. A Diretoria trouxe 5 dores estratégicas — cada uma ancorada em dado de mercado real (com fonte) — para um diagnóstico baseado em dados:
 
 | # | Desafio | Pergunta de negócio |
 |---|---|---|
@@ -31,7 +33,6 @@ Panorama de mercado → Pergunta de negócio → Hipótese testável → SQL →
 A hipótese é escrita **antes** de qualquer código. Todas as queries foram validadas com resultados reais sobre a base de 1.000 funcionários — inclusive decisões metodológicas explícitas sobre período de análise (ano fiscal 2025 vs. histórico acumulado), definição de headcount ativo, e tratamento de "última avaliação" via window functions.
 
 ---
-
 ## Estrutura do repositório
 
 | Arquivo | Conteúdo |
@@ -56,7 +57,6 @@ A hipótese é escrita **antes** de qualquer código. Todas as queries foram val
 - **A Aurora está descapitalizada em experiência.** Apenas **6,22%** do quadro tem 50+ anos, contra ~27% da população brasileira — e a Geração Z já é 46,28% do Operacional, mas 0% em Gerência e Diretoria.
 
 ---
-
 ## Recomendações prioritárias
 
 1. Investigação de clima e liderança em Marketing e Operações (turnover concentrado).
@@ -84,7 +84,9 @@ A hipótese é escrita **antes** de qualquer código. Todas as queries foram val
 
 ## Sobre mim
 
-Administradora, com MBA em Gestão Estratégica de Compras e pós-graduação em Gerenciamento de Projetos. Mais de 6 anos como Compradora e experiência como Analista de Diversidade, Equidade e Inclusão — a bagagem de negócio que sustenta as recomendações deste case. Em transição para Análise de Dados.
+Bacharel em Administração pela PUC Minas, com pós-graduações em Gestão Estratégica de Compras e Gerenciamento de Projetos. Minha trajetória combina visão de negócio, pensamento analítico, governança e dados para apoiar decisões.
+Tenho experiência na estruturação de KPIs, dashboards, análises e diagnósticos, transformando dados em informações claras e relevantes para a tomada de decisão.
+Atualmente, direciono minha carreira para Análise de Dados, aprofundando conhecimentos em SQL e Power BI, com Excel Avançado. Busco aplicar esse repertório na análise de dados, identificação de padrões e geração de insights que contribuam para decisões mais consistentes.
 
 [https://www.linkedin.com/in/mariana-sil/] · [mariana.silvams13@gmail.com]
 
