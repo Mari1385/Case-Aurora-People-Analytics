@@ -52,26 +52,21 @@ Os 5 desafios foram analisados usando a base fictícia da Aurora e considerando 
 
 ## Principais achados
 
-- **1.Turnover**
-    O turnover de 2025 variou entre **0,99% (Financeiro) a 7,69% (Marketing).** A diferença entre os departamentos é de quase 8 vezes.
-- **2.Equidade Salarial**
-    Existe diferença salarial entre homens e mulheres, mas ela é menor entre os cargos de maior nível.
+- **Turnover:** O turnover de 2025 variou entre **0,99% (Financeiro) a 7,69% (Marketing).** A diferença entre os departamentos é de quase 8 vezes.
+- **Equidade Salarial:** Existe diferença salarial entre homens e mulheres, mas ela é menor entre os cargos de maior nível.
     No cargo de Diretor, a diferença média foi de **1,50%**.
     A representatividade muda de forma mais significativa conforme o nível hierárquico. Mulheres representam **52,91% da base e 18,42% da Diretoria**.
     Pessoas brancas representam **37,38% da base e cerca de 69% da Diretoria**.
-- **3.Avaliação e desempenho**
-    As notas médias dos departamentos são próximas, variando entre **7,55 e 7,66**.
+- **Avaliação e desempenho:** As notas médias dos departamentos são próximas, variando entre **7,55 e 7,66**.
     Por outro lado, cerca de **66% dos funcionários nunca tiveram PDI ou avaliação 360**.
     A quantidade de avaliações também varia entre os funcionários, de 0 a 3 avaliações.
-- **4.Promoções**
-    Entre as pessoas elegíveis que não foram promovidas, a diferença por gênero é pequena:
+- **Promoções:** Entre as pessoas elegíveis que não foram promovidas, a diferença por gênero é pequena:
     **25,00% mulheres e 21,87% homens**.
     Por raça, os percentuais foram:
         Amarela: **29,41%**
         Parda: **26,98%**
         Branca: **20,81%**
-- **5.Força multigeracional.**
-    Pessoas 50+ representam **6,22%** da empresa.
+- **Força multigeracional:** Pessoas 50+ representam **6,22%** da empresa.
     A Geração Z representa **46,28% do quadro Operacional**, mas não aparece nos níveis de Gerência e Diretoria.
 
 ---
