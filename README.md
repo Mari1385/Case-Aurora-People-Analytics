@@ -1,18 +1,19 @@
-# Aurora Serviços Corporativos — Case de People Analytics
+# Aurora Serviços Corporativos | Case de People Analytics
 
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-T--SQL-1F4E5F?style=flat-square)
 ![Power BI](https://img.shields.io/badge/Power%20BI-em%20constru%C3%A7%C3%A3o-B45309?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Portfólio-2E7D4F?style=flat-square)
 
-**Um diagnóstico de People Analytics para uma empresa fictícia de 1.000 funcionários — da pergunta de negócio ao SQL validado.**
+**Case de People Analytics com uma empresa fictícia de 1.000 funcionários.**
 
-Este projeto simula o trabalho de uma Analista de Dados dentro de uma área de Gente: 5 perguntas reais de RH investigadas com hipóteses testáveis, resolvidas em SQL Server (T-SQL) e validadas contra a base real.
+O projeto parte de 5 perguntas de RH e usa SQL Server para analisar os dados e encontrar padrões que apoiem decisões.
 
 ---
 
 ## O problema de negócio
 
-A **Aurora Serviços Corporativos** é uma empresa fictícia de porte médio (1.000 funcionários, 6 departamentos), representada pelo banco `00_schema_banco_rh_dei_1000.sql`. A Diretoria trouxe 5 dores estratégicas — cada uma ancorada em dado de mercado real (com fonte) — para um diagnóstico baseado em dados:
+A **Aurora Serviços Corporativos** é uma empresa fictícia com 1.000 funcionários e 6 departamentos.
+A Diretoria trouxe 5 perguntas para análise:
 
 | # | Desafio | Pergunta de negócio |
 |---|---|---|
@@ -24,13 +25,14 @@ A **Aurora Serviços Corporativos** é uma empresa fictícia de porte médio (1.
 
 ---
 
-## Metodologia
+## Como a análise foi feita
 
 ```
 Panorama de mercado → Pergunta de negócio → Hipótese testável → SQL → Insight real → Recomendação
 ```
+As hipóteses foram definidas antes da análise dos dados.
 
-A hipótese é escrita **antes** de qualquer código. Todas as queries foram validadas com resultados reais sobre a base de 1.000 funcionários — inclusive decisões metodológicas explícitas sobre período de análise (ano fiscal 2025 vs. histórico acumulado), definição de headcount ativo, e tratamento de "última avaliação" via window functions.
+Os 5 desafios foram analisados usando a base fictícia da Aurora e considerando o período de 2025 quando aplicável.
 
 ---
 ## Estrutura do repositório
@@ -44,49 +46,65 @@ A hipótese é escrita **antes** de qualquer código. Todas as queries foram val
 | `sql/desafio4_sucessao_promocoes.sql` | Elegíveis não promovidos por departamento, gênero e raça (window functions + CTEs). |
 | `sql/desafio5_multigeracional.sql` | Concentração etária por nível hierárquico e comparação com benchmark nacional. |
 
-> Dashboard Power BI e notebooks Python: em desenvolvimento — próxima etapa do roadmap abaixo.
+> Dashboard Power BI e notebook Python estão em desenvolvimento.
 
 ---
 
 ## Principais achados
 
-- **O turnover de 2025 está concentrado, não disseminado.** Varia de **0,99% (Financeiro) a 7,69% (Marketing)** — quase 8x de diferença. Marketing e Operações merecem atenção prioritária agora.
-- **O teto de vidro é mais forte que o gap salarial.** O gap salarial direto (M vs. F) existe mas é modesto e menor no topo (1,50% no Diretor). O achado que pesa mais é a representatividade: mulheres caem de **52,91% para 18,42%** da base ao Diretoria; pessoas brancas sobem de **37,38% para ~69%** no mesmo caminho.
-- **A régua de avaliação não é justa — e o problema é por gestor, não por área.** A nota média quase não varia entre departamentos (7,55–7,66), mas a aplicação de PDI e avaliação 360 é praticamente abandonada em toda a empresa (~66% nunca teve, mesmo na Tecnologia). Em todo departamento, o intervalo de avaliações por pessoa vai de 0 a 3 — a inconsistência depende do gestor individual.
-- **A estagnação de carreira é racial, não de gênero.** Entre elegíveis a promoção não promovidos, a diferença por gênero é pequena (25,00% × 21,87%), mas por raça é real: **29,41% (Amarela) e 26,98% (Parda)**, contra 20,81% (Branca).
-- **A Aurora está descapitalizada em experiência.** Apenas **6,22%** do quadro tem 50+ anos, contra ~27% da população brasileira — e a Geração Z já é 46,28% do Operacional, mas 0% em Gerência e Diretoria.
+- **1.Turnover**
+- O turnover de 2025 variou entre **0,99% (Financeiro) a 7,69% (Marketing).** A diferença entre os departamentos é de quase 8 vezes.
+- **2.Equidade Salarial**
+- Existe diferença salarial entre homens e mulheres, mas ela é menor entre os cargos de maior nível.
+- No cargo de Diretor, a diferença média foi de **1,50%**.
+- A representatividade muda de forma mais significativa conforme o nível hierárquico. Mulheres representam **52,91% da base e 18,42% da Diretoria**.
+- Pessoas brancas representam **37,38% da base e cerca de 69% da Diretoria**.
+- **3.Avaliação e desempenho**
+- As notas médias dos departamentos são próximas, variando entre **7,55 e 7,66**.
+- Por outro lado, cerca de **66% dos funcionários nunca tiveram PDI ou avaliação 360**.
+- A quantidade de avaliações também varia entre os funcionários, de 0 a 3 avaliações.
+- **4.Promoções**
+- Entre as pessoas elegíveis que não foram promovidas, a diferença por gênero é pequena:
+- **25,00% mulheres e 21,87% homens**.
+- Por raça, os percentuais foram:
+    Amarela: **29,41%**
+    Parda: **26,98%**
+    Branca: **20,81%**
+- **Força multigeracional.**
+- Pessoas 50+ representam **6,22%** da empresa.
+- A Geração Z representa **46,28% do quadro Operacional**, mas não aparece nos níveis de Gerência e Diretoria.
 
 ---
-## Recomendações prioritárias
+## Recomendações
 
-1. Investigação de clima e liderança em Marketing e Operações (turnover concentrado).
-2. Auditoria do pipeline de promoção com metas de representatividade por nível (gênero e raça).
-3. Tornar PDI e avaliação 360 obrigatórios e padronizados, com acompanhamento por gestor.
-4. Comitê de calibração de promoções, priorizando pessoas pardas e amarelas elegíveis não promovidas.
-5. Programa de mentoria estruturada e plano de atração de profissionais 50+.
+1. Investigar turnover e liderança em Marketing e Operações.
+2. Analisar o processo de promoção por gênero e raça.
+3. Padronizar PDI e avaliação 360.
+4. Acompanhar a distribuição das promoções entre os diferentes grupos.
+5. Criar ações para troca de conhecimento entre diferentes gerações.
 
 ---
 
 ## Tecnologias
 
-- **SQL Server (T-SQL)** — filtros, agregações, JOINs, subqueries correlacionadas, CTEs, window functions (`ROW_NUMBER() OVER PARTITION BY`)
-- **Metodologia** — análise orientada a hipótese (Pergunta → Hipótese → SQL → Insight → Recomendação)
-- **Em desenvolvimento:** Power BI/DAX, Python (pandas)
+- **SQL Server:** filtros, agregações, JOINs, subqueries, CTEs e window functions.
+- **Em desenvolvimento:** Power BI/DAX e Python com pandas.
 
 ## Roadmap
 
-- [x] SQL: 5 desafios, 13 hipóteses testadas e validadas
-- [ ] Dashboard Power BI (modelo de dados e medidas já planejados)
-- [ ] Notebook Python com análise exploratória
-- [ ] README com prints do dashboard
+- [x] SQL: 5 desafios, 13 hipóteses analisadas
+- [ ] Dashboard Power BI
+- [ ] Notebook Python
+- [ ] Inclusão dos prints do dashboard no README
 
 ---
 
 ## Sobre mim
 
-Bacharel em Administração pela PUC Minas, com pós-graduações em Gestão Estratégica de Compras e Gerenciamento de Projetos. Minha trajetória combina visão de negócio, pensamento analítico, governança e dados para apoiar decisões.
-Tenho experiência na estruturação de KPIs, dashboards, análises e diagnósticos, transformando dados em informações claras e relevantes para a tomada de decisão.
-Atualmente, direciono minha carreira para Análise de Dados, aprofundando conhecimentos em SQL e Power BI, com Excel Avançado. Busco aplicar esse repertório na análise de dados, identificação de padrões e geração de insights que contribuam para decisões mais consistentes.
+Sou bacharel em Administração pela PUC Minas, com pós-graduações em Gestão Estratégica de Compras e Gerenciamento de Projetos. Minha experiência reúne visão de negócio, análise de dados e governança.
+Tenho experiência com KPIs, dashboards, análises e diagnósticos para apoiar decisões.
+Atualmente, direciono minha carreira para Análise de Dados, aprofundando meus conhecimentos em SQL e Power BI, além de Excel Avançado.
+Neste projeto, uso dados de RH como contexto para praticar análise de dados e SQL.
 
 [https://www.linkedin.com/in/mariana-sil/] · [mariana.silvams13@gmail.com]
 
