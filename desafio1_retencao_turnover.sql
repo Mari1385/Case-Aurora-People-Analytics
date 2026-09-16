@@ -14,11 +14,9 @@
    concentrado em departamentos, cargos ou faixas de tempo de casa
    específicas?"
 
-   DECISÃO METODOLÓGICA
-   Turnover calculado sobre o ano fiscal de 2025 completo (não sobre o
-   histórico acumulado da empresa) — responde "a Aurora tem um problema
-   HOJE", não "desde que a empresa existe". Headcount (denominador) =
-   quem já estava ativo em 01/01/2025.
+   DEFINIÇÃO
+   Turnover calculado sobre o ano fiscal de 2025 completo. 
+   Headcount = quem já estava ativo em 01/01/2025.
    ===================================================================== */
 
 -- -----------------------------------------------------------------------
@@ -42,7 +40,7 @@ INNER JOIN departamentos d ON f.id_departamento = d.id_departamento
 GROUP BY d.nome_departamento
 ORDER BY Taxa_Turnover_Pct DESC;
 
-/* RESULTADO VALIDADO:
+/* RESULTADO:
    Marketing 65/5   -> 7,69%
    Operações 163/10 -> 6,13%
    Comercial 153/5  -> 3,27%
@@ -68,25 +66,21 @@ WHERE f.data_desligamento BETWEEN '2025-01-01' AND '2025-12-31'
 GROUP BY d.nome_departamento
 ORDER BY Percentual DESC;
 
-/* RESULTADO VALIDADO (agregado da empresa, 26 desligados em 2025):
-   Até 11 meses: 8  (30,8%)
-   12-18 meses:  5  (19,2%)
-   Mais 18 meses:13 (50,0%)
-   Por departamento as bases são pequenas (1-5 desligamentos), pouco
-   robustas isoladamente.
+/* RESULTADO: Total de 26 desligados em 2025:
+    Até 11 meses: 8  (30,8%)
+    12-18 meses:  5  (19,2%)
+    Mais 18 meses:13 (50,0%)
+   Por departamento as quantidades são pequenas (de 1 a 5 desligamentos).
 */
 
 /* -----------------------------------------------------------------------
    INSIGHT
-   H1 confirma com força: turnover varia de 0,99% (Financeiro) a 7,69%
-   (Marketing) — quase 8x de diferença. Marketing e Operações concentram
-   o problema em 2025 (diferente da leitura histórica acumulada, que
-   sugeria "problema disseminado").
+   H1 confirma: turnover varia de 0,99% (Financeiro) a 7,69%
+   (Marketing), quase 8x de diferença. 
    H2 confirma parcialmente: metade das saídas acontece após 18 meses de
-   casa — o oposto do que a hipótese de "problema de onboarding" previa.
+   casa. Não se trata de um "problema de onboarding".
 
    RECOMENDAÇÃO
    Investigação direcionada de clima e liderança em Marketing e
-   Operações; monitoramento trimestral do turnover por departamento
-   (não só o agregado da empresa).
+   Operações; acompanhamento trimestral do turnover por departamento.
    ----------------------------------------------------------------------- */
