@@ -17,18 +17,18 @@ A Diretoria trouxe 5 perguntas para análise:
 
 | # | Desafio | Pergunta de negócio |
 |---|---|---|
-| 1 | **Retenção de Talentos e Turnover** | O turnover é um problema geral ou está concentrado em algum recorte? |
-| 2 | **Equidade Salarial de Gênero e Raça** | Dentro do mesmo cargo, homens e mulheres ganham o mesmo? E entre raças? |
-| 3 | **Employee Experience e Engajamento** | As notas de desempenho variam por área? Isso se conecta com turnover? |
-| 4 | **Pipeline de Sucessão e Meritocracia** | Quem está pronto para promoção e não foi promovido? Isso é desigual? |
-| 5 | **Gestão da Força Multigeracional** | Como a pirâmide etária se distribui? Existe risco de "apagão de conhecimento"? |
+| 1 | **Retenção de Talentos e Turnover** | O turnover está concentrado em algum departamento? |
+| 2 | **Equidade Salarial de Gênero e Raça** | Homens e mulheres ganham o mesmo no mesmo cargo? E entre raças? |
+| 3 | **Employee Experience e Engajamento** | As notas de desempenho variam entre as áreas? Existe relação com turnover? |
+| 4 | **Pipeline de Sucessão e Meritocracia** | Quem está elegível para promoção e ainda não foi promovido? |
+| 5 | **Gestão da Força Multigeracional** | Como as diferentes faixas etárias estão distribuídas na empresa? |
 
 ---
 
 ## Como a análise foi feita
 
 ```
-Panorama de mercado → Pergunta de negócio → Hipótese testável → SQL → Insight real → Recomendação
+Panorama de mercado → Pergunta de negócio → Hipótese → SQL → Insight → Recomendação
 ```
 As hipóteses foram definidas antes da análise dos dados.
 
@@ -39,12 +39,12 @@ Os 5 desafios foram analisados usando a base fictícia da Aurora e considerando 
 
 | Arquivo | Conteúdo |
 |---|---|
-| `sql/00_schema_banco_rh_dei_1000.sql` | Script de criação e carga do banco (funcionarios, departamentos, cargos, avaliacoes, promocoes). |
-| `sql/desafio1_retencao_turnover.sql` | Turnover por departamento (ano fiscal 2025) e faixas de tempo de casa. |
-| `sql/desafio2_equidade_salarial.sql` | Gap salarial direto por gênero, representatividade por nível, composição racial. |
-| `sql/desafio3_employee_experience.sql` | Nota média x turnover, cobertura de avaliação por tipo, regularidade por gestor. |
-| `sql/desafio4_sucessao_promocoes.sql` | Elegíveis não promovidos por departamento, gênero e raça (window functions + CTEs). |
-| `sql/desafio5_multigeracional.sql` | Concentração etária por nível hierárquico e comparação com benchmark nacional. |
+| `sql/00_schema_banco_rh_dei_1000.sql` | Criação e carga do banco de dados. |
+| `sql/desafio1_retencao_turnover.sql` | Turnover por departamento e tempo de casa. |
+| `sql/desafio2_equidade_salarial.sql` | Diferenças salariais, gênero, raça e nível hierárquico. |
+| `sql/desafio3_employee_experience.sql` | Desempenho, avaliações e turnover. |
+| `sql/desafio4_sucessao_promocoes.sql` | Pessoas elegíveis para promoção que não foram promovidas. |
+| `sql/desafio5_multigeracional.sql` | Distribuição etária por nível hierárquico. |
 
 > Dashboard Power BI e notebook Python estão em desenvolvimento.
 
