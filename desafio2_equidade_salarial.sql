@@ -12,12 +12,10 @@
    salário? A disparidade muda quando cruzamos com raça/etnia? Em qual
    nível hierárquico a diferença é maior?"
 
-   DECISÕES METODOLÓGICAS
-   - Escopo: apenas ativos hoje (foto do quadro atual, sem recorte de ano).
-   - H1 usa comparação DIRETA Masculino x Feminino (não "vs. média do
-     cargo") — alinhado à forma como o benchmark do MTE é calculado.
-   - Gênero e raça/etnia são tratados em tabelas SEPARADAS — dimensões
-     diferentes não devem ser comparadas na mesma tabela.
+   DEFINIÇÃO
+   - Escopo: apenas pessoas ativas no quadro de funcionários atual, sem recorte de ano.
+   - H1 usa comparação direta Masculino x Feminino.
+   - Gênero e raça/etnia são tratados em tabelas dimensões separadas.
    ===================================================================== */
 
 -- -----------------------------------------------------------------------
@@ -40,18 +38,18 @@ WHERE f.genero IN ('Masculino', 'Feminino') AND f.data_desligamento IS NULL
 GROUP BY c.nome_cargo, c.id_cargo
 ORDER BY Media_Masculino DESC;
 
-/* RESULTADO VALIDADO:
+/* RESULTADO:
    Analista Jr      -> Gap 7,74%
    Analista Pleno   -> Gap 6,14%
    Analista Sênior  -> Gap 5,57%
    Coordenador      -> Gap 5,91%
    Gerente          -> Gap 2,94%
-   Diretor          -> Gap 1,50%  (amostra pequena: só 7 mulheres)
+   Diretor          -> Gap 1,50%  (apenas 7 mulheres)
 */
 
 -- -----------------------------------------------------------------------
 -- H2: A representatividade de mulheres cai conforme sobe o nível
---     hierárquico ("teto de vidro").
+--     hierárquico.
 -- -----------------------------------------------------------------------
 SELECT
     c.nivel_hierarquico,
@@ -64,7 +62,7 @@ WHERE f.data_desligamento IS NULL
 GROUP BY c.nivel_hierarquico
 ORDER BY Pct_Mulheres DESC;
 
-/* RESULTADO VALIDADO:
+/* RESULTADO:
    Operacional  618 -> 52,91% mulheres
    Coordenação  109 -> 43,12%
    Gerência      71 -> 32,39%
@@ -90,7 +88,7 @@ WHERE f.data_desligamento IS NULL
 GROUP BY c.nivel_hierarquico
 ORDER BY Pct_Branco DESC;
 
-/* RESULTADO VALIDADO:
+/* RESULTADO:
    Gerência     -> 69,01% branca | 22,54% negra
    Diretoria    -> 68,42% branca | 23,68% negra
    Coordenação  -> 58,72% branca | 33,03% negra
@@ -99,14 +97,13 @@ ORDER BY Pct_Branco DESC;
 
 /* -----------------------------------------------------------------------
    INSIGHT
-   H1 confirma, mas o gap DIMINUI com a hierarquia (7,74% -> 1,50%) —
-   padrão oposto ao esperado; possível efeito de amostra pequena no topo.
-   H2 confirma com força: representatividade cai 34+ pontos percentuais
+   H1 confirma, mas o gap DIMINUI com a hierarquia (7,74% -> 1,50%).
+   H2 confirma: representatividade cai 34+ pontos percentuais
    do Operacional à Diretoria.
-   H3 confirma com força: composição branca sobe de 37% para ~69% no topo.
+   H3 confirma: composição branca sobe de 37% para ~69% na alta liderança.
 
    RECOMENDAÇÃO
-   O achado que lidera a apresentação é a queda de representatividade
+   O ponto de atenção é a queda de representatividade
    (gênero e raça), não o gap salarial. Auditoria do pipeline de
-   promoção com metas de representatividade por nível (ver Desafio 4).
+   promoção com metas de representatividade por nível.
    ----------------------------------------------------------------------- */
