@@ -14,9 +14,8 @@
    poucas pessoas seniores, enquanto a geração mais jovem cresce sem
    plano de carreira claro?"
 
-   DECISÃO METODOLÓGICA
-   Idade calculada com data de referência FIXA (2025-12-31), não
-   GETDATE() — garante reprodutibilidade do resultado.
+   DEFINIÇÃO
+   Idade calculada com data de referência fixa (2025-12-31).
    ===================================================================== */
 
 -- -----------------------------------------------------------------------
@@ -35,7 +34,7 @@ WHERE f.data_desligamento IS NULL
 GROUP BY c.nivel_hierarquico
 ORDER BY Pct_50_Mais DESC;
 
-/* RESULTADO VALIDADO:
+/* RESULTADO:
    Diretoria    38 -> 19 (50,00%)
    Gerência     71 -> 27 (38,03%)
    Coordenação 109 -> 6  (5,50%)
@@ -58,7 +57,7 @@ WHERE f.data_desligamento IS NULL
 GROUP BY c.nivel_hierarquico
 ORDER BY Pct_Geracao_Z DESC;
 
-/* RESULTADO VALIDADO:
+/* RESULTADO:
    Operacional 618 -> 286 (46,28%)
    Coordenação 109 -> 6   (5,50%)
    Gerência     71 -> 0   (0,00%)
@@ -81,16 +80,16 @@ WHERE f.data_desligamento IS NULL;
 
 /* -----------------------------------------------------------------------
    INSIGHT
-   H1 confirma com muita força: metade da Diretoria (50%) e mais de um
+   H1 confirma que metade da Diretoria (50%) e mais de um
    terço da Gerência (38%) já têm 50+, contra 0% no Operacional.
-   H2 confirma com muita força: Geração Z é quase metade do Operacional
-   (46,28%), mas ausente de Gerência/Diretoria (0% nos dois).
-   H3 confirma com força: só 6,22% do quadro tem 50+, vs. ~27% nacional
-   — sub-representação de mais de 4x.
+   H2 confirma que a Geração Z é quase metade do Operacional
+   (46,28%), mas ausente de na Gerência/Diretoria (0% nos dois).
+   H3 confirma, apenas 6,22% do quadro tem 50+, vs. ~27% nacional. 
+   Sub-representação de mais de 4x.
 
    RECOMENDAÇÃO
    O risco real é a combinação de conhecimento concentrado em poucas
-   pessoas seniores no topo, sem trilha de sucessão visível vinda de
-   baixo (conecta com a estagnação de carreira do Desafio 4). Programa
-   de mentoria estruturada + plano de atração de profissionais 50+.
+   pessoas seniores no topo da hierarquia, sem trilha de sucessão visível vinda de
+   baixo. 
+   Programa de mentoria estruturada + plano de atração de profissionais 50+.
    ----------------------------------------------------------------------- */
