@@ -13,16 +13,16 @@
    casa suficiente para uma promoção, mas não foram promovidas nos
    últimos 2 anos? Esse gap é maior em algum grupo demográfico?"
 
-   DECISÕES METODOLÓGICAS
-   - "Última avaliação" = a mais recente de cada pessoa, de QUALQUER
-     ano (ROW_NUMBER, sem filtro de data — restringir a um ano excluiria
-     pessoas cuja última avaliação foi em outro ano).
-   - LEFT JOIN (não INNER) entre funcionários e última avaliação — para
-     não perder do total quem nunca foi avaliado.
+   DEFINIÇÃO
+   - "Última avaliação" = a mais recente de cada pessoa, de qualquer
+   ano (ROW_NUMBER, sem filtro de data, porque restringir a um ano excluiria
+   pessoas que a última avaliação foi realizada no ano anterior.
+   - LEFT JOIN (não INNER) entre funcionários e última avaliação, para
+   não perder do total quem nunca foi avaliado.
    - "Não promovido nos últimos 2 anos" = sem promoção desde 2023-12-31
-     (data fixa, considerando 2025-12-31 como referência de "hoje").
+  (data fixa, considerando 2025-12-31 como referência de "hoje").
    - Quem nunca foi promovido só conta como elegível se também tiver
-     tempo de casa suficiente (admitido até 2023-12-31).
+   tempo de casa suficiente (admitido até 2023-12-31).
    ===================================================================== */
 
 -- -----------------------------------------------------------------------
@@ -66,7 +66,7 @@ WHERE f.data_desligamento IS NULL
 GROUP BY d.nome_departamento
 ORDER BY Qtd_Elegiveis_Nao_Promovidos DESC;
 
-/* RESULTADO VALIDADO (soma bate com o total de 836 ativos):
+/* RESULTADO (A soma bate com o total de 836 ativos):
    Tecnologia 213 -> 55 (25,82%)
    Operações  191 -> 46 (24,08%)
    Marketing   79 -> 18 (22,78%)
@@ -115,7 +115,7 @@ GROUP BY raca_etnia
 
 ORDER BY Dimensao, Pct_Elegivel DESC;
 
-/* RESULTADO VALIDADO:
+/* RESULTADO:
    Genero      Feminino       404 / 101 -> 25,00%
    Genero      Masculino      407 / 89  -> 21,87%
    Raça/Etnia  Amarela         51 / 15  -> 29,41%
@@ -128,12 +128,11 @@ ORDER BY Dimensao, Pct_Elegivel DESC;
 
 /* -----------------------------------------------------------------------
    INSIGHT
-   H1 confirma com força: 20,7% a 25,8% dos ativos em cada departamento
-   estão "represados" — padrão homogêneo entre áreas (diferente do
-   turnover), sugerindo problema de política de promoção, não de área.
-   H2 NÃO confirma com força por gênero (diferença de só 3pp), mas
-   confirma por raça: Amarela e Parda 6-9pp acima de Branca — mesmo
-   padrão racial encontrado no Desafio 2.
+   H1 confirma: 20,7% a 25,8% dos ativos em cada departamento
+   possuem pessoas elegíveis não promovidas.  Padrão homogêncio, 
+   sugerindo problema de política de promoção, não de área.
+   H2 Não confirma por gênero (diferença de só 3pp), mas
+   confirma por raça: Amarela e Parda 6-9pp acima de Branca.
 
    RECOMENDAÇÃO
    Comitê de calibração de promoções com critérios objetivos, priorizando
