@@ -1,11 +1,6 @@
 /* ============================================================
-   BANCO FICTÍCIO DE RH / DEI PARA PRÁTICA DE SQL — VERSÃO 1000 FUNCIONÁRIOS
-   Compatível com SQL Server (T-SQL)
-   Mesma estrutura de tabelas do banco_rh_dei.sql original — apenas o volume
-   e a distribuição dos dados mudam, para simular uma empresa de médio porte.
+   BANCO FICTÍCIO DE RH / DEI PARA PRÁTICA DE SQL — 1000 FUNCIONÁRIOS
    ============================================================ */
-
--- Se quiser, crie um banco próprio antes de rodar o script:
 -- CREATE DATABASE RH_DEI;
 -- GO
 -- USE RH_DEI;
@@ -24,7 +19,7 @@ CREATE TABLE departamentos (
 CREATE TABLE cargos (
     id_cargo INT PRIMARY KEY,
     nome_cargo VARCHAR(50) NOT NULL,
-    nivel_hierarquico VARCHAR(30), -- Ex: Operacional, Coordenação, Gerência, Diretoria
+    nivel_hierarquico VARCHAR(30), -- Operacional, Coordenação, Gerência, Diretoria
     faixa_salarial_min DECIMAL(10,2),
     faixa_salarial_max DECIMAL(10,2)
 );
