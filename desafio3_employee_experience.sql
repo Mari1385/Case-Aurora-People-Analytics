@@ -11,11 +11,11 @@
    "As notas de desempenho da Aurora variam por departamento?
    Departamentos com notas mais baixas também têm turnover mais alto?"
 
-   DECISÕES METODOLÓGICAS
-   - Nota média: todas as avaliações do departamento, sem recorte de ano.
-   - Turnover 2025: mesma lógica do Desafio 1, mas headcount inclui
-     também quem foi admitido durante 2025 (não só quem já estava no
-     início do ano).
+ DEFINIÇÃO
+ - Nota média: todas as avaliações do departamento, sem recorte de ano.
+ - Turnover 2025: mesma lógica do Desafio 1, mas headcount inclui
+   também quem foi admitido durante 2025 (não só quem já estava no
+   início do ano).
    ===================================================================== */
 
 -- -----------------------------------------------------------------------
@@ -40,8 +40,8 @@ LEFT JOIN departamentos d ON f.id_departamento = d.id_departamento
 GROUP BY d.nome_departamento
 ORDER BY Media_Nota DESC;
 
-/* RESULTADO VALIDADO:
-   Marketing   -> nota 7,66 | turnover 6,58%  (maior nota E maior turnover!)
+/* RESULTADO:
+   Marketing   -> nota 7,66 | turnover 6,58% 
    Tecnologia  -> nota 7,61 | turnover 1,97%
    Operações   -> nota 7,60 | turnover 5,56%
    Financeiro  -> nota 7,59 | turnover 0,92%
@@ -73,14 +73,17 @@ SELECT
     Total_Ativos - Realizado_360 AS Nunca_Teve_360
 FROM ListaAvaliacoes;
 
-/* RESULTADO VALIDADO (Nunca_Teve_PDI / Nunca_Teve_360 sempre altos,
-   mesmo na Tecnologia ~66% nunca teve PDI ou 360):
+/* RESULTADO:
    Tecnologia 213 -> PDI 141 | Desemp. 63  | 360 140
    Operações  191 -> PDI 132 | Desemp. 55  | 360 144
    Comercial  177 -> PDI 127 | Desemp. 47  | 360 129
    Financeiro 116 -> PDI 71  | Desemp. 35  | 360 73
    Marketing   79 -> PDI 54  | Desemp. 27  | 360 57
    RH          60 -> PDI 33  | Desemp. 22  | 360 38
+
+   O número de pessoas que "Nunca_Teve_PDI" e "Nunca_Teve_360" estão 
+   sempre altos, mesmo no departamento de Tecnologia ~66% nunca teve 
+   PDI ou 360.
 */
 
 -- -----------------------------------------------------------------------
@@ -107,22 +110,27 @@ FROM ListaAvaliados
 GROUP BY nome_departamento
 ORDER BY Media_Avaliacoes_Por_Funcionario DESC;
 
-/* RESULTADO VALIDADO — Min=0 e Max=3 em TODOS os departamentos:
-   Financeiro 2,15 | RH 2,03 | Tecnologia 2,02 | Comercial 1,92 |
-   Operações 1,90 | Marketing 1,76
+/* RESULTADO:  
+    Min=0 e Max=3 em TODOS os departamentos:
+        Financeiro 2,15
+        RH 2,03 
+        Tecnologia 2,02
+        Comercial 1,92
+        Operações 1,90
+        Marketing 1,76
 */
 
 /* -----------------------------------------------------------------------
    INSIGHT
-   H1 NÃO confirma: nota quase não varia (7,55-7,66); Marketing tem a
-   MAIOR nota E o MAIOR turnover ao mesmo tempo — oposto da hipótese.
-   H2 confirma com força: Desempenho é quase universal, mas PDI e 360
-   são negligenciados em toda a empresa (~66% nunca teve, mesmo na Tec).
-   H3 NÃO confirma "por departamento" — mas revela que a inconsistência
-   é por GESTOR (Min=0, Max=3 idêntico em toda parte), não por área.
+   H1 Não confirma: nota quase não varia (7,55-7,66); Marketing tem a
+   maior nota e o maior turnover ao mesmo tempo. O oposto da hipótese.
+   H2 confirma: Desempenho é quase em todos os departamento, mas PDI e 360
+   são deixa a desejar em toda a empresa (~66% nunca teve, mesmo na Tec).
+   H3 Não confirma, porém mostra que a inconsistência
+   é por gestor, não por área.
 
    RECOMENDAÇÃO
    Tornar PDI e 360 obrigatórios e padronizados, com acompanhamento por
    gestor. Investigar por que Marketing combina nota alta com turnover
-   alto — a nota pode não capturar os reais motivos de saída.
+   alto. Ponto de atenção: a nota pode não capturar os reais motivos de saída.
    ----------------------------------------------------------------------- */
